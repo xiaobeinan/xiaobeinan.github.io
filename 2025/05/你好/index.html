@@ -577,8 +577,25 @@
     <span id="timeDate">正在载入天数...</span>
     <span id="times">载入时分秒...</span>
     <script>
-      // 修正日期格式为 ISO 标准格式
-      var startDate = new Date('2025-08-17T00:00:00');
+      // 获取当前日期时间
+      function getCurrentDateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        return {
+          date: `${year}-${month}-${day}`,
+          time: `${hours}:${minutes}:${seconds}`
+        };
+      }
+      
+      // 使用当前日期作为起始日期（或根据需要修改为其他日期）
+      const current = getCurrentDateTime();
+      var startDate = new Date(`${current.date}T00:00:00`);
       
       // 检查日期是否有效
       if (isNaN(startDate.getTime())) {
@@ -601,7 +618,7 @@
           seconds = seconds.toString().padStart(2, '0');
           
           // 更新DOM
-          document.getElementById("timeDate").innerHTML = "🚀已持续航行&nbsp" + days + "&nbsp天";
+          document.getElementById("timeDate").innerHTML = "🚀已稳定航行&nbsp" + days + "&nbsp天";
           document.getElementById("times").innerHTML = hours + "&nbsp时&nbsp" + minutes + "&nbsp分&nbsp" + seconds + "&nbsp秒";
         }
         
