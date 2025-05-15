@@ -206,8 +206,8 @@
 <div class="header-inner" style="height: 80vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="../index.html">
-      <strong>Fluid</strong>
+      <strong class="navbar-title">Fluid</strong>
+      <a class="navbar-brand" href="../index.html">
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -386,6 +386,47 @@
 
   <footer>
     <div class="footer-inner">
+  <div>
+    <span id="timeDate">正在载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+      // 修正日期格式为 ISO 标准格式
+      var startDate = new Date('2020-08-17T00:00:00');
+      
+      // 检查日期是否有效
+      if (isNaN(startDate.getTime())) {
+        document.getElementById("timeDate").innerHTML = "🚀起始日期解析错误";
+        document.getElementById("times").innerHTML = "--:--:--";
+      } else {
+        function createtime() {
+          var now = new Date();
+          var diff = now - startDate;
+          
+          // 计算各时间单位
+          var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+          
+          // 格式化显示（补零）
+          hours = hours.toString().padStart(2, '0');
+          minutes = minutes.toString().padStart(2, '0');
+          seconds = seconds.toString().padStart(2, '0');
+          
+          // 更新DOM
+          document.getElementById("timeDate").innerHTML = "🚀已持续航行&nbsp" + days + "&nbsp天";
+          document.getElementById("times").innerHTML = hours + "&nbsp时&nbsp" + minutes + "&nbsp分&nbsp" + seconds + "&nbsp秒";
+        }
+        
+        // 初始调用一次
+        createtime();
+        
+        // 每秒更新一次
+        setInterval(createtime, 1000);
+      }
+    </script>
+  </div>
+  
   
     <div class="footer-content">
        <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
@@ -394,7 +435,6 @@
   
   
 </div>
-
   </footer>
 
   <!-- Scripts -->
