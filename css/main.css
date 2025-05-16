@@ -491,6 +491,18 @@ sup > a::before,
   #subtitle,
   .typed-cursor {
     font-size: 1.5rem;
+/* 新增样式开始 */
+    width: 2px; /* 微细光标宽度 */
+    height: 1em; /* 高度与文字一致 */
+    background: linear-gradient(45deg, #ee7752, #23a6d5, #23d5ab, #ce3e75);
+    background-size: 400% 400%;
+    -webkit-animation: GradientShift 3s ease infinite;
+    animation: GradientShift 3s ease infinite;
+    border-radius: 1px; /* 让光标边角更圆润 */
+    box-shadow: 0 0 8px rgba(34,193,195,0.7); /* 添加发光阴影 */
+    display: inline-block; /* 保持在 inline 样式中 */
+    cursor: default; /* 鼠标悬浮样式 */
+/* 新增样式结束 */
   }
 }
 @media (max-width: 575px) {
@@ -500,6 +512,50 @@ sup > a::before,
   #subtitle,
   .typed-cursor {
     font-size: 1.35rem;
+  }
+}
+@-moz-keyframes GradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes GradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes GradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes GradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 .modal-dialog .modal-content {
