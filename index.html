@@ -588,6 +588,7 @@
     <!-- 页脚整体开始 -->
 <footer class="footer">
   <div class="footer-inner">
+    <!-- 时间信息 -->
     <div class="text-center py-1">
       <div>
         <span id="timeDate">正在载入天数...</span>
@@ -613,7 +614,7 @@
           const current = getCurrentDateTime();
           // 以本地时间为起点
           var startDate = new Date(current.date);
-          
+
           if (isNaN(startDate.getTime())) {
             document.getElementById("timeDate").innerHTML = "🚀起始日期解析错误";
             document.getElementById("times").innerHTML = "::";
@@ -624,7 +625,7 @@
 
               var days = Math.floor(diff / (1000 * 60 * 60 * 24));
               var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+              var minutes = Math.floor((diff % (1000 * 60)) / (1000 * 60));
               var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
               hours = hours.toString().padStart(2, '0');
@@ -640,14 +641,48 @@
         </script>
       </div>
     </div>
+
     <!-- 版权信息 -->
     <div class="footer-copyright text-center">
       <span>
         Copyright © 2025 <a href="https://xiaobeinan-github-io.pages.dev/about/" target="_blank" rel="noopener">Xcy</a>. All Rights Reserved.
       </span>
     </div>
+
+    <!-- 备案信息 -->
+    
+    <div class="footer-beian text-center">
+      <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      粤ICP证619963号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=6695019"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>粤公网安备3295019号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+    </div>
+    
   </div>
 </footer>
+
 <!-- 模板内容部分（确保放在页面合适位置） -->
 
   <div class="footer-content text-center">
@@ -685,39 +720,6 @@
   
 
 </div>
-
-
-
-<!-- 备案信息 -->
-
-  <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      粤ICP证619963号
-    </a>
-  </span>
-  
-    
-      <span>
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=6695019"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
-          
-          <span>粤公网安备3295019号</span>
-        </a>
-      </span>
-    
-  
-</div>
-
-
-
 
 
   </footer>
@@ -775,7 +777,7 @@
 
 
   
-<script enable path="&#x2F;css&#x2F;style.css,&#x2F;css&#x2F;glassBg.css,&#x2F;css&#x2F;sign.css,&#x2F;css&#x2F;part-text.css,&#x2F;css&#x2F;scrollAnimation.css,js&#x2F;stars.js,&#x2F;js&#x2F;dynamic-domain.js,&#x2F;js&#x2F;OriginTitle.js" src="../../../../../../../../../../../../../../../index.html.js"></script>
+<script enable path="&#x2F;css&#x2F;style.css,&#x2F;css&#x2F;glassBg.css,&#x2F;css&#x2F;sign.css,&#x2F;css&#x2F;part-text.css,&#x2F;css&#x2F;scrollAnimation.css,js&#x2F;stars.js,&#x2F;js&#x2F;dynamic-domain.js,&#x2F;js&#x2F;OriginTitle.js" src="../../../../../../../../../../../../../../index.html.js"></script>
 
 
 
