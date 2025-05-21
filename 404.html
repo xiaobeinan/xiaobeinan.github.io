@@ -96,7 +96,25 @@
     }
 
     #navbarBrand.clicked {
-      transform: scale(1.2); /* 点击后放大1.2倍 */
+      transform: scale(1.6); /* 点击后放大1.2倍 */
+    }
+
+    /* 隐藏幽默文字框 */
+    #humorText {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      max-width: 80%;
+      font-size: 1.2em;
+      z-index: 9999;
+      opacity: 0; /* 初始透明度 */
+      transition: opacity 0.5s ease-in-out; /* 透明度过渡效果 */
     }
   </style>
 
@@ -107,7 +125,7 @@
 
       if (titleEl) {
         titleEl.addEventListener('click', function() {
-          alert("标题被点击！");
+          alert("hhh");
           // 可替换为其他操作
         });
       }
@@ -121,12 +139,44 @@
           setTimeout(() => {
             this.classList.remove('clicked'); // 0.3秒后移除 'clicked' 类，恢复原状
           }, 300); // 动画持续时间：300毫秒
+
+          // 显示幽默文字函数
+          showHumorMessage();
         });
+      }
+
+      // 定义显示幽默文字的函数
+      function showHumorMessage() {
+        var humorDiv = document.getElementById('humorText');
+
+        if (humorDiv) {
+          humorDiv.textContent = "嘿嘿，你点我啦！休息一下吧！"; // 要显示的文字
+          humorDiv.style.display = 'block'; // 显示元素
+          
+          // 动画：淡入
+          setTimeout(() => {
+              humorDiv.style.opacity = 1;
+          }, 50); // 延迟一点时间，确保display变为block
+
+          // 动画：2秒后淡出
+          setTimeout(() => {
+            humorDiv.style.opacity = 0;
+          }, 2500);
+
+          // 动画：动画结束, 隐藏元素
+          setTimeout(() => {
+            humorDiv.style.display = 'none';
+          }, 3000);
+        }
       }
     });
   </script>
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="晓北的小草屋" type="application/atom+xml">
 </head>
+  <body>
+    <div id="humorText"></div>
+    <!-- 页面内容 -->
+  </body>
 
 
 <body>
