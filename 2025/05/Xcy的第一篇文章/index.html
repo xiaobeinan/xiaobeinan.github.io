@@ -128,18 +128,19 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var titleEl = document.getElementById('navbarTitle');
-      var brandEl = document.getElementById('navbarBrand');
+      var onTitle = document.getElementById('MainonTitle');
+      var onLogo = document.getElementById('MainonLogo');
 
-      if (titleEl) {
-        titleEl.addEventListener('click', function() {
-          alert("hhh");
+      if (onTitle) {
+        onTitle.addEventListener('click', function() {
+          
           // 可替换为其他操作
+          showHumorMessage();
         });
       }
 
-      if (brandEl) {
-        brandEl.addEventListener('click', function(e) {
+      if (onLogo) {
+        onLogo.addEventListener('click', function(e) {
           e.preventDefault(); // 阻止默认链接跳转
 
           this.classList.add('clicked'); // 添加 'clicked' 类，触发放大
@@ -313,9 +314,9 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <strong class="navbar-title" id="navbarTitle">晓北的小草屋</strong>
+    <strong class="navbar-title" id="MainonTitle">晓北的小草屋</strong>
 
-    <a class="navbar-brand" id="navbarBrand" href="../../../index.html"></a>
+    <a class="navbar-brand" id="MainonLogo" href="../../../index.html"></a>
 
 
     </a>
@@ -934,7 +935,7 @@
 
 
   
-<script enable path="&#x2F;css&#x2F;style.css,&#x2F;css&#x2F;glassBg.css,&#x2F;css&#x2F;sign.css,&#x2F;css&#x2F;part-text.css,&#x2F;css&#x2F;scrollAnimation.css,js&#x2F;stars.js,&#x2F;js&#x2F;dynamic-domain.js,&#x2F;js&#x2F;OriginTitle.js" src="../../../../../../index.html.js"></script>
+<script enable path="&#x2F;css&#x2F;style.css,&#x2F;css&#x2F;glassBg.css,&#x2F;css&#x2F;sign.css,&#x2F;css&#x2F;part-text.css,&#x2F;css&#x2F;scrollAnimation.css,js&#x2F;stars.js,&#x2F;js&#x2F;dynamic-domain.js,&#x2F;js&#x2F;OriginTitle.js" src="../../../../../index.html.js"></script>
 
 
 
