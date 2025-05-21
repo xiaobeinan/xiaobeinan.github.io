@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  
+
   <link rel="apple-touch-icon" sizes="76x76" href="../../../img/fluid.png">
   <link rel="icon" href="../../../img/fluid.png">
   
@@ -90,6 +90,15 @@
 
 
   
+  <style>
+    #navbarBrand {
+      transition: transform 0.3s ease; /* 添加过渡效果，使动画平滑 */
+    }
+
+    #navbarBrand.clicked {
+      transform: scale(1.2); /* 点击后放大1.2倍 */
+    }
+  </style>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -106,8 +115,12 @@
       if (brandEl) {
         brandEl.addEventListener('click', function(e) {
           e.preventDefault(); // 阻止默认链接跳转
-          alert("博客品牌被点击！");
-          // 可替换为其他操作
+
+          this.classList.add('clicked'); // 添加 'clicked' 类，触发放大
+
+          setTimeout(() => {
+            this.classList.remove('clicked'); // 0.3秒后移除 'clicked' 类，恢复原状
+          }, 300); // 动画持续时间：300毫秒
         });
       }
     });

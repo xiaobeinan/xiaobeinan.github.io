@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  
+
   <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
   <link rel="icon" href="/img/fluid.png">
   
@@ -19,12 +19,12 @@
   <meta name="author" content="晓北">
   <meta name="keywords" content="前端开发,Node.js,云计算,技术博客">
   
-    <meta name="description" content="Contact InformationYou can reach me at &#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#109;.">
+    <meta name="description" content="Contact InformationYou can reach me at &#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#64;&#101;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact Me">
 <meta property="og:url" content="https://xiaobeinan.github.io/hh">
 <meta property="og:site_name" content="晓北的小草屋">
-<meta property="og:description" content="Contact InformationYou can reach me at &#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#109;.">
+<meta property="og:description" content="Contact InformationYou can reach me at &#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#64;&#101;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-25T02:00:00.000Z">
 <meta property="article:modified_time" content="2025-05-21T00:00:49.969Z">
@@ -92,6 +92,15 @@
 
 
   
+  <style>
+    #navbarBrand {
+      transition: transform 0.3s ease; /* 添加过渡效果，使动画平滑 */
+    }
+
+    #navbarBrand.clicked {
+      transform: scale(1.2); /* 点击后放大1.2倍 */
+    }
+  </style>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -108,8 +117,12 @@
       if (brandEl) {
         brandEl.addEventListener('click', function(e) {
           e.preventDefault(); // 阻止默认链接跳转
-          alert("博客品牌被点击！");
-          // 可替换为其他操作
+
+          this.classList.add('clicked'); // 添加 'clicked' 类，触发放大
+
+          setTimeout(() => {
+            this.classList.remove('clicked'); // 0.3秒后移除 'clicked' 类，恢复原状
+          }, 300); // 动画持续时间：300毫秒
         });
       }
     });
@@ -367,7 +380,7 @@
                 
 
 <article class="page-content">
-  <h1 id="Contact-Information"><a href="#Contact-Information" class="headerlink" title="Contact Information"></a>Contact Information</h1><p>You can reach me at <a href="mailto:&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#109;">&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#109;</a>.</p>
+  <h1 id="Contact-Information"><a href="#Contact-Information" class="headerlink" title="Contact Information"></a>Contact Information</h1><p>You can reach me at <a href="mailto:&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#64;&#101;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;">&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#64;&#101;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;</a>.</p>
 
 
   
@@ -609,7 +622,7 @@
 
 
   
-<script enable path="&#x2F;css&#x2F;style.css,&#x2F;css&#x2F;glassBg.css,&#x2F;css&#x2F;sign.css,&#x2F;css&#x2F;part-text.css,&#x2F;css&#x2F;scrollAnimation.css,js&#x2F;stars.js,&#x2F;js&#x2F;dynamic-domain.js,&#x2F;js&#x2F;OriginTitle.js" src="../../index.html.js"></script>
+<script enable path="&#x2F;css&#x2F;style.css,&#x2F;css&#x2F;glassBg.css,&#x2F;css&#x2F;sign.css,&#x2F;css&#x2F;part-text.css,&#x2F;css&#x2F;scrollAnimation.css,js&#x2F;stars.js,&#x2F;js&#x2F;dynamic-domain.js,&#x2F;js&#x2F;OriginTitle.js" src="../../../index.html.js"></script>
 
 
 
