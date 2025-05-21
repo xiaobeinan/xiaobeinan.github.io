@@ -101,25 +101,23 @@
 
   
 
-  <!-- 添加点击事件的脚本 -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var titleEl = document.getElementById('navbarTitle'); // 注意确保navbarTitle ID存在对应的元素上
-      var brandEl = document.getElementById('navbarBrand');   // 注意确保navbarBrand ID存在对应的元素上
+      var titleEl = document.getElementById('navbarTitle');
+      var brandEl = document.getElementById('navbarBrand');
 
       if (titleEl) {
         titleEl.addEventListener('click', function() {
           alert("标题被点击！");
-          // 这里可以写你需要做的事情，例如跳转链接
-          // window.location.href = 'https://example.com';
+          // 可替换为其他操作
         });
       }
 
       if (brandEl) {
         brandEl.addEventListener('click', function(e) {
-          e.preventDefault(); // 阻止默认跳转（如果需要）
-          alert("Logo或品牌被点击！");
-          // 你也可以进行跳转，如：window.location.href='https://xxx.com'
+          e.preventDefault(); // 阻止默认链接跳转
+          alert("博客品牌被点击！");
+          // 可替换为其他操作
         });
       }
     });
@@ -254,8 +252,11 @@
 <div class="header-inner" style="height: 60vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-      <strong class="navbar-title">晓北的小草屋</strong>
-      <a class="navbar-brand" href="../../index.html">
+    <strong class="navbar-title" id="navbarTitle">晓北的小草屋</strong>
+
+    <a class="navbar-brand" id="navbarBrand" href="../../index.html"></a>
+
+
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
