@@ -120,16 +120,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-
-      // 检查是否单击页面的logo元素
       var titleEl = document.getElementById('navbarTitle');
-
-      // 检查是否单击了标题元素
       var brandEl = document.getElementById('navbarBrand');
-      
 
-      // 如果单机了标题logo元素，显示幽默文字框
       if (titleEl) {
+        titleEl.addEventListener('click', function() {
+          alert("hhh");
+          // 可替换为其他操作
+        });
+      }
+
+      if (brandEl) {
         brandEl.addEventListener('click', function(e) {
           e.preventDefault(); // 阻止默认链接跳转
 
