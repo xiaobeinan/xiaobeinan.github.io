@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-
+  
   <link rel="apple-touch-icon" sizes="76x76" href="../../../img/fluid.png">
   <link rel="icon" href="../../../img/fluid.png">
   
@@ -98,6 +98,30 @@
 
 
   
+
+  <!-- 添加点击事件的脚本 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var titleEl = document.getElementById('navbarTitle'); // 注意确保navbarTitle ID存在对应的元素上
+      var brandEl = document.getElementById('navbarBrand');   // 注意确保navbarBrand ID存在对应的元素上
+
+      if (titleEl) {
+        titleEl.addEventListener('click', function() {
+          alert("标题被点击！");
+          // 这里可以写你需要做的事情，例如跳转链接
+          // window.location.href = 'https://example.com';
+        });
+      }
+
+      if (brandEl) {
+        brandEl.addEventListener('click', function(e) {
+          e.preventDefault(); // 阻止默认跳转（如果需要）
+          alert("Logo或品牌被点击！");
+          // 你也可以进行跳转，如：window.location.href='https://xxx.com'
+        });
+      }
+    });
+  </script>
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="晓北的小草屋" type="application/atom+xml">
 </head>
 
