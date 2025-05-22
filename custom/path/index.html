@@ -7,15 +7,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <!-- 其他 meta 和标题 -->
-  
-  <!-- APlayer CSS CDN，引入到<head>中 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css">
 
-  <!-- 其他CSS等 -->
+  <!-- APlayer CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+  
   <link rel="apple-touch-icon" sizes="76x76" href="../../img/fluid.png">
   <link rel="icon" href="../../img/fluid.png">
   
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -118,14 +117,15 @@
 
 
   
-
   <style>
     #navbarBrand {
       transition: transform 0.3s ease; /* 添加过渡效果，使动画平滑 */
     }
+
     #navbarBrand.clicked {
-      transform: scale(1.6); /* 点击后放大1.6倍 */
+      transform: scale(1.6); /* 点击后放大1.2倍 */
     }
+
     /* 隐藏幽默文字框 */
     #humorText {
       display: none;
@@ -145,144 +145,53 @@
     }
   </style>
 
-  <!-- JS部分可以放在底部，这里暂时不写 -->
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="晓北的小草屋" type="application/atom+xml">
-</head>
-
-<body>
-  <div id="humorText"></div>
-  
-  <!-- 页面内容 -->
-  
-
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">Fluid</div>
-    <div class="about-intro">An elegant theme for Hexo</div>
-    <div class="about-icons">
-      
-        
-        
-        
-        <a href=https://github.com/xiaobeinan class="
-           hint--bottom hint--rounded"
-           aria-label="GitHub"
-           target="_blank"
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a  class="qr-trigger
-           "
-           
-           target="_self"
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="../../img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
-          
-        </a>
-      
-    </div>
-  </div>
-</div>
-
-<article class="about-content page-content mt-5">
-  <div class="markdown-body">
-    <h1 id="你好，我是-xiaobeinan-👋"><a href="#你好，我是-xiaobeinan-👋" class="headerlink" title="你好，我是 xiaobeinan 👋"></a>你好，我是 xiaobeinan 👋</h1><p>🎓 咱为一名学生<br>💻 喜欢用 <strong>Python</strong> 和 <strong>HTML</strong> 折腾一些小玩意<br>🌱 正在不断学习和探索<br>🛠️ 偶尔会更新有趣的小项目，欢迎交流和建议！</p>
-<hr>
-<p>🔗 <a target="_blank" rel="noopener" href="https://xiaobeinan-github-io.pages.dev/about/">关于我的个人</a></p>
-<p>你可以在这里添加你喜欢的项目链接或徽章，例如：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/anuraghazra/github-readme-stats"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=xiaobeinan&amp;layout=compact" srcset="/img/loading.gif" lazyload alt="Top Langs"></a></p>
-<p>感谢你的访问！✨</p>
-<p>！</p>
-
-  </div>
-
-  
-</article>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-  <!-- 在 body 末尾引入 APlayer JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
-  <!-- 初始化播放器的脚本 -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // 初始化APlayer
-      const ap = new APlayer({
-        container: document.getElementById('aplayer'),
-        audio: [
-          {
-            name: '示例歌曲',
-            artist: '示例歌手',
-            url: '你的音乐文件链接.mp3', // 替换
-            cover: '封面图片链接.jpg'  // 替换
-          }
-        ]
-      });
-
-      // 绑定点击事件（示意）
       var onTitle = document.getElementById('MainonTitle');
       var onLogo = document.getElementById('MainonLogo');
 
       if (onTitle) {
         onTitle.addEventListener('click', function() {
+          
+          // 可替换为其他操作
           showHumorMessage();
         });
       }
 
       if (onLogo) {
         onLogo.addEventListener('click', function(e) {
-          e.preventDefault();
-          this.classList.add('clicked');
+          e.preventDefault(); // 阻止默认链接跳转
+
+          this.classList.add('clicked'); // 添加 'clicked' 类，触发放大
+
           setTimeout(() => {
-            this.classList.remove('clicked');
-          }, 300);
+            this.classList.remove('clicked'); // 0.3秒后移除 'clicked' 类，恢复原状
+          }, 300); // 动画持续时间：300毫秒
+
+          // 显示幽默文字函数
           showHumorMessage();
         });
       }
 
+      // 定义显示幽默文字的函数
       function showHumorMessage() {
         var humorDiv = document.getElementById('humorText');
+
         if (humorDiv) {
-          humorDiv.textContent = "嘿嘿，你点我啦！休息一下吧！";
-          humorDiv.style.display = 'block';
+          humorDiv.textContent = "嘿嘿，你点我啦！休息一下吧！"; // 要显示的文字
+          humorDiv.style.display = 'block'; // 显示元素
+          
+          // 动画：淡入
           setTimeout(() => {
               humorDiv.style.opacity = 1;
-          }, 50);
+          }, 50); // 延迟一点时间，确保display变为block
+
+          // 动画：2秒后淡出
           setTimeout(() => {
             humorDiv.style.opacity = 0;
           }, 2500);
+
+          // 动画：动画结束, 隐藏元素
           setTimeout(() => {
             humorDiv.style.display = 'none';
           }, 3000);
@@ -290,7 +199,12 @@
       }
     });
   </script>
-</body>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="晓北的小草屋" type="application/atom+xml">
+</head>
+  <body>
+    <div id="humorText"></div>
+    <!-- 页面内容 -->
+  </body>
 
 
 <body>
@@ -703,7 +617,7 @@
 
               var days = Math.floor(diff / (1000 * 60 * 60 * 24));
               var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              var minutes = Math.floor((diff % (1000 * 60)) / (1000 * 60));
+              var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); //修正
               var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
               hours = hours.toString().padStart(2, '0');
@@ -719,7 +633,6 @@
         </script>
       </div>
     </div>
-
 
     <!-- 统计信息 -->
     
@@ -749,7 +662,6 @@
 </div>
 
     
-
 
     <!-- 版权信息 -->
     <div class="footer-copyright text-center">
@@ -803,6 +715,92 @@
   </div>
 
 
+<!-- APlayer 容器 -->
+<div id="aplayer"></div>
+
+<!-- APlayer JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+
+<!-- Color Thief JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+
+<script>
+  // 替换成你自己的API地址，返回包含歌曲信息的JSON数据
+  // 示例数据格式：
+  // {
+  //   "code": 1,
+  //   "data": {
+  //     "name": "隔壁泰山",
+  //     "url": "http://music.163.com/song/media/outer/url?id=862101001.mp3",
+  //     "picurl": "http://p1.music.126.net/pbT0ag5PXJwYzFJ7YklMCA==/109951163386629013.jpg"
+  //   }
+  // }
+  const MUSIC_API_URL = 'https://api.uomg.com/api/rand.music?sort=%E7%83%AD%E6%AD%8C%E6%A6%9C&format=json'; // 使用你的 API 地址
+
+  async function getLatestSong() {
+    try {
+      const response = await fetch(MUSIC_API_URL);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+
+      // 检查 API 是否成功返回数据（code === 1）
+      if (data.code !== 1) {
+        throw new Error(`API returned an error: ${data.msg}`);
+      }
+
+      // 从 data.data 中提取歌曲信息
+      const songData = data.data;
+
+      return {
+        name: songData.name,
+        artist: '未知歌手', // API 没有提供歌手信息, 可以设置为 '未知歌手' 或者尝试从其他途径获取
+        url: songData.url,
+        cover: songData.picurl
+      };
+
+    } catch (error) {
+      console.error('获取歌曲信息失败:', error);
+      // 返回默认歌曲信息
+      return {
+        name: '默认歌曲',
+        artist: '默认歌手',
+        url: '默认歌曲链接.mp3',
+        cover: '默认封面图片.jpg'
+      };
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', async function() {
+    const songInfo = await getLatestSong();
+
+    const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      audio: [songInfo] // 使用从网络获取的歌曲信息
+    });
+
+    // 根据封面提取主题颜色
+    ap.on('loadeddata', function () {
+      const colorThief = new ColorThief();
+      const coverImage = document.querySelector('.aplayer-pic'); // 获取封面图片元素
+      const themeColor = colorThief.getColor(coverImage); // 获取主色
+
+      // 将主题色应用到 APlayer 容器
+      ap.container.style.setProperty('--aplayer-theme', `rgb(${themeColor[0]}, ${themeColor[1]}, ${themeColor[2]})`);
+
+    });
+
+        // 可选：定时更新歌曲信息（例如每小时更新一次）
+        // setInterval(async () => {
+        //     const newSongInfo = await getLatestSong();
+        //     ap.pause();
+        //     ap.list.clear();
+        //     ap.list.add(newSongInfo);
+        //     ap.play();
+        // }, 3600000); // 每小时更新一次
+  });
+</script>
 
   </footer>
 
