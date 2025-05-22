@@ -7,11 +7,15 @@
 
 <head>
   <meta charset="UTF-8">
+  <!-- 其他 meta 和标题 -->
+  
+  <!-- APlayer CSS CDN，引入到<head>中 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css">
 
+  <!-- 其他CSS等 -->
   <link rel="apple-touch-icon" sizes="76x76" href="../img/fluid.png">
   <link rel="icon" href="../img/fluid.png">
   
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -104,15 +108,14 @@
 
 
   
+
   <style>
     #navbarBrand {
       transition: transform 0.3s ease; /* 添加过渡效果，使动画平滑 */
     }
-
     #navbarBrand.clicked {
-      transform: scale(1.6); /* 点击后放大1.2倍 */
+      transform: scale(1.6); /* 点击后放大1.6倍 */
     }
-
     /* 隐藏幽默文字框 */
     #humorText {
       display: none;
@@ -132,53 +135,129 @@
     }
   </style>
 
+  <!-- JS部分可以放在底部，这里暂时不写 -->
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="晓北的小草屋" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="humorText"></div>
+  
+  <!-- 页面内容 -->
+  
+
+<div class="row links">
+  
+    
+    <div class="card col-lg-4 col-md-6 col-sm-12">
+      <a href="https://hexo.fluid-dev.com/" class="card-body hover-with-bg" target="_blank" rel="noopener">
+        <div class="card-content">
+          
+            <div class="link-avatar my-auto">
+              <img src="../img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Blog"
+                   onerror="this.onerror=null; this.src=this.srcset='../img/avatar.png'"/>
+            </div>
+          
+          <div class="link-text">
+            <div class="link-title">Fluid Blog</div>
+            <div class="link-intro">主题博客</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  
+    
+    <div class="card col-lg-4 col-md-6 col-sm-12">
+      <a href="https://hexo.fluid-dev.com/docs/" class="card-body hover-with-bg" target="_blank" rel="noopener">
+        <div class="card-content">
+          
+            <div class="link-avatar my-auto">
+              <img src="../img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Docs"
+                   onerror="this.onerror=null; this.src=this.srcset='../img/avatar.png'"/>
+            </div>
+          
+          <div class="link-text">
+            <div class="link-title">Fluid Docs</div>
+            <div class="link-intro">主题使用指南</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  
+    
+    <div class="card col-lg-4 col-md-6 col-sm-12">
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" class="card-body hover-with-bg" target="_blank" rel="noopener">
+        <div class="card-content">
+          
+            <div class="link-avatar my-auto">
+              <img src="../img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Repo"
+                   onerror="this.onerror=null; this.src=this.srcset='../img/avatar.png'"/>
+            </div>
+          
+          <div class="link-text">
+            <div class="link-title">Fluid Repo</div>
+            <div class="link-intro">主题 GitHub 仓库</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  
+</div>
+
+
+
+
+
+
+  <!-- 在 body 末尾引入 APlayer JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+  <!-- 初始化播放器的脚本 -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // 初始化APlayer
+      const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        audio: [
+          {
+            name: '示例歌曲',
+            artist: '示例歌手',
+            url: '你的音乐文件链接.mp3', // 替换
+            cover: '封面图片链接.jpg'  // 替换
+          }
+        ]
+      });
+
+      // 绑定点击事件（示意）
       var onTitle = document.getElementById('MainonTitle');
       var onLogo = document.getElementById('MainonLogo');
 
       if (onTitle) {
         onTitle.addEventListener('click', function() {
-          
-          // 可替换为其他操作
           showHumorMessage();
         });
       }
 
       if (onLogo) {
         onLogo.addEventListener('click', function(e) {
-          e.preventDefault(); // 阻止默认链接跳转
-
-          this.classList.add('clicked'); // 添加 'clicked' 类，触发放大
-
+          e.preventDefault();
+          this.classList.add('clicked');
           setTimeout(() => {
-            this.classList.remove('clicked'); // 0.3秒后移除 'clicked' 类，恢复原状
-          }, 300); // 动画持续时间：300毫秒
-
-          // 显示幽默文字函数
+            this.classList.remove('clicked');
+          }, 300);
           showHumorMessage();
         });
       }
 
-      // 定义显示幽默文字的函数
       function showHumorMessage() {
         var humorDiv = document.getElementById('humorText');
-
         if (humorDiv) {
-          humorDiv.textContent = "嘿嘿，你点我啦！休息一下吧！"; // 要显示的文字
-          humorDiv.style.display = 'block'; // 显示元素
-          
-          // 动画：淡入
+          humorDiv.textContent = "嘿嘿，你点我啦！休息一下吧！";
+          humorDiv.style.display = 'block';
           setTimeout(() => {
               humorDiv.style.opacity = 1;
-          }, 50); // 延迟一点时间，确保display变为block
-
-          // 动画：2秒后淡出
+          }, 50);
           setTimeout(() => {
             humorDiv.style.opacity = 0;
           }, 2500);
-
-          // 动画：动画结束, 隐藏元素
           setTimeout(() => {
             humorDiv.style.display = 'none';
           }, 3000);
@@ -186,12 +265,7 @@
       }
     });
   </script>
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="晓北的小草屋" type="application/atom+xml">
-</head>
-  <body>
-    <div id="humorText"></div>
-    <!-- 页面内容 -->
-  </body>
+</body>
 
 
 <body>
