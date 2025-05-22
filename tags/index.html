@@ -633,18 +633,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 
 <style>
-  /* 自定义样式，将APlayer固定在左下角 */
+  /* 自定义样式以实现贴边 */
   #aplayer {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: auto; /* 允许 APlayer 根据内容自动调整宽度 */
-    max-width: 300px; /* 限制最大宽度 */
+    width: 100%;
     z-index: 1000; /* 确保在其他内容之上 */
-    transform-origin: bottom left; /* 设置变换原点 */
     transition: transform 0.3s ease; /* 平滑过渡 */
-    border-top-right-radius: 10px; /* 可选：添加右上角圆角 */
-    overflow: hidden; /* 确保内容不会溢出容器 */
   }
 
   #aplayer.minimized {
@@ -653,25 +649,14 @@
 
   #aplayer-toggle {
     position: fixed;
-    bottom: 10px; /* 调整按钮位置 */
-    left: 10px; /* 调整按钮位置 */
+    bottom: 0;
+    right: 10px; /* 调整按钮位置 */
     z-index: 1001; /* 确保在 APlayer 之上 */
     background-color: #eee;
     border: 1px solid #ccc;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 5px;
   }
-
-   .aplayer-body {
-        display: flex;
-        align-items: center;
-    }
-
-    .aplayer-info {
-        width: auto; /* 自动调整宽度 */
-        flex-grow: 1; /* 允许占据剩余空间 */
-    }
 </style>
 
 <script>
@@ -715,7 +700,7 @@
       container: document.getElementById('aplayer'),
       audio: [song],
       autoplay: true, // 自动播放
-      fixed: true, // 启用固定模式
+      fixed: true, // 启用固定模式 (可以和贴边结合)
       mini: true // 初始时就设置为最小化
     });
 
